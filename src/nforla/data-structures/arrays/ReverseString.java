@@ -12,7 +12,7 @@ public class ReverseString {
         }
         return reversedString.toString();
     }
-    
+
     public static void main(String[] args) {
         String reversedString = reverseString("Hi my name is nico!");
         System.out.println("Reversed String: " + reversedString);
