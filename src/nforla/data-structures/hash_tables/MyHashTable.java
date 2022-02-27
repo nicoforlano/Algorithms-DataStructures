@@ -1,5 +1,8 @@
 package hash_tables;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Simple implementation of a custom Hashtable data structure.
  * Done as practice for a course on DataStructures and Algorithms.
@@ -46,6 +49,23 @@ public class MyHashTable {
         return hash;
     }
 
+    public List<String> keys() {
+        List<String> keys = new ArrayList<>();
+        for (Bucket bucket : this.data) {
+            if (bucket != null) {
+                List<Object[]> bucketData = bucket.getBucketData();
+                if (bucketData.size() > 1) {
+                    for (Object[] entry : bucketData) {
+                        keys.add((String) entry[0]);
+                    }
+                } else {
+                    keys.add((String) bucketData.get(0)[0]);
+                }
+            }
+        }
+        return keys;
+    }
+
     public static void main(String[] args) {
         MyHashTable hashTable = new MyHashTable(2);
         hashTable.set("key", 123);
@@ -54,5 +74,6 @@ public class MyHashTable {
         System.out.println(hashTable.get("key"));
         System.out.println(hashTable.get("asd"));
         System.out.println(hashTable.get(null));
+        System.out.println(hashTable.keys());
     }
 }

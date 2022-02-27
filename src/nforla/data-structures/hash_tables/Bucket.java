@@ -23,4 +23,8 @@ public class Bucket {
         }
         return null;
     }
+
+    public List<Object[]> getBucketData() {
+        return this.bucketData;
+    }
 }
