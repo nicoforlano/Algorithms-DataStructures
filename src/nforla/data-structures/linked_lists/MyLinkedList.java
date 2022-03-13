@@ -2,9 +2,12 @@ package linked_lists;
 
 public class MyLinkedList {
 
-    private Node head;
-    private Node tail;
-    private int length;
+    protected Node head;
+    protected Node tail;
+    protected int length;
+
+    public MyLinkedList() {
+    }
 
     public MyLinkedList(Object headValue) {
         this.head = new Node(headValue, null);

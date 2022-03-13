@@ -2,11 +2,10 @@ package linked_lists;
 
 public class Node {
 
-    private Object value;
-    private Node next;
+    protected Object value;
+    protected Node next;
 
     public Node() {
-
     }
 
     public Node(Object value, Node next) {
