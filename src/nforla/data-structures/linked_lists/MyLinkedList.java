@@ -43,6 +43,7 @@ public class MyLinkedList {
         Node leader = this.traverseToIndex(insertionIndex - 1);
         Node newNode = new Node(value, leader.getNext());
         leader.setNext(newNode);
+        this.length++;
     }
 
     public void remove(Integer removalIndex) {
@@ -52,11 +53,13 @@ public class MyLinkedList {
         }
         if(removalIndex == 0) {
             this.head = this.head.getNext();
+            this.length--;
             return;
         }
         Node leader = this.traverseToIndex(removalIndex - 1);
         Node nodeToRemove = leader.getNext();
         leader.setNext(nodeToRemove.getNext());
+        this.length--;
     }
 
     public Node traverseToIndex(int index) {
@@ -79,6 +82,29 @@ public class MyLinkedList {
         System.out.println("");
     }
 
+    public void reverse() {
+
+        if(this.head == null || this.head.getNext() == null) {
+            return;
+        }
+
+        Node newHead = tail;
+        Node currentNode = newHead;
+
+        int index = length - 1;
+
+        while(index >= 0) {
+            Node nextNode = traverseToIndex(index);
+            currentNode.setNext(nextNode);
+            currentNode = nextNode;
+            index--;
+        }
+
+        head = newHead;
+        tail = currentNode;
+        tail.setNext(null);
+    }
+
     public static void main(String[] args) {
         MyLinkedList linkedList = new MyLinkedList(100);
         linkedList.append("Hey");
@@ -87,7 +113,9 @@ public class MyLinkedList {
         linkedList.prepend("WTF");
         linkedList.insert(3, 99);
         linkedList.traverseAndPrint();
-        linkedList.remove(3);
+        linkedList.reverse();
         linkedList.traverseAndPrint();
+        //linkedList.remove(3);
+        //linkedList.traverseAndPrint();
     }
 }
