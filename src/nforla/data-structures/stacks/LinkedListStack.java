@@ -1,12 +1,12 @@
 package stacks;
 
-public class Stack {
+public class LinkedListStack {
 
     private Node top;
     private Node bottom;
     private int length;
 
-    public Stack() {
+    public LinkedListStack() {
         this.length = 0;
     }
 
@@ -37,7 +37,7 @@ public class Stack {
         if(this.top == null) {
             return null;
         }
-        
+
         Node elementToPop = this.top;
 
         this.top = elementToPop.getNext();
@@ -76,21 +76,21 @@ public class Stack {
 
     public static void main(String[] args) {
 
-        Stack stack = new Stack();
-        stack.push("This");
-        stack.push("That");
-        stack.push("There");
-        stack.printStack();
-        System.out.println("BOTTOM: " + stack.getBottom());
-        stack.pop();
-        stack.printStack();
-        System.out.println("PEEK: " + stack.peek());
-        stack.pop();
-        stack.printStack();
-        System.out.println("PEEK: " + stack.peek());
-        stack.pop();
-        stack.printStack();
-        System.out.println("PEEK: " + stack.peek());
+        LinkedListStack linkedListStack = new LinkedListStack();
+        linkedListStack.push("This");
+        linkedListStack.push("That");
+        linkedListStack.push("There");
+        linkedListStack.printStack();
+        System.out.println("BOTTOM: " + linkedListStack.getBottom());
+        linkedListStack.pop();
+        linkedListStack.printStack();
+        System.out.println("PEEK: " + linkedListStack.peek());
+        linkedListStack.pop();
+        linkedListStack.printStack();
+        System.out.println("PEEK: " + linkedListStack.peek());
+        linkedListStack.pop();
+        linkedListStack.printStack();
+        System.out.println("PEEK: " + linkedListStack.peek());
 
     }
 }
