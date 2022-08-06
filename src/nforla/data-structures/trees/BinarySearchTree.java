@@ -155,6 +155,16 @@ public class BinarySearchTree {
         }
     }
 
+    public void recursiveTraverse(Node node) {
+        if(node.getLeft() != null) {
+            recursiveTraverse(node.getLeft());
+        }
+        System.out.println("Node " + node.getValue());
+        if(node.getRight() != null) {
+            recursiveTraverse(node.getRight());
+        }
+    }
+
     @Override
     public String toString() {
         return "BinarySearchTree{" +
@@ -174,9 +184,10 @@ public class BinarySearchTree {
         binarySearchTree.insert(15);
         binarySearchTree.insert(1);
         System.out.println("TREE: " + binarySearchTree);
-        node = binarySearchTree.lookup(6);
-        binarySearchTree.remove(651);
-        System.out.println("REMOVING");
-        System.out.println("NEW TREE: " + binarySearchTree);
+        binarySearchTree.recursiveTraverse(binarySearchTree.root);
+//        node = binarySearchTree.lookup(6);
+//        binarySearchTree.remove(651);
+//        System.out.println("REMOVING");
+//        System.out.println("NEW TREE: " + binarySearchTree);
     }
 }
